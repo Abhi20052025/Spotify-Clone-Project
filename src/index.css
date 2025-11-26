@@ -1,0 +1,7 @@
+@import "tailwindcss/preflight";  /* replaces 'base' */
+@import "tailwindcss/utilities";  /* replaces 'utilities' */
+@import "tailwindcss";
+
+::-webkit-scrollbar {
+  display: none;
+}
