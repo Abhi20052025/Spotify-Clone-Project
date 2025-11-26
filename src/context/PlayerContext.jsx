@@ -1,7 +1,7 @@
 import { createContext, useEffect, useRef, useState } from "react";
 import { songsData } from "../assets/assets/assets";
 
-// Create Context
+// Create Context it be show the error .sovlve using Blackbox AI,ChatGpt etc.
 export const PlayerContext = createContext();
 
 const PlayerContextProvider = ({ children }) => {
@@ -56,6 +56,11 @@ const PlayerContextProvider = ({ children }) => {
         }
     };
 
+    const seekSong = async (e) => {
+        audioRef.current.currentTime=((e.nativeEvent.offsetX/ seekBg.current.offsetWidth)*audioRef.current.duration)
+    }
+
+
     useEffect(() => {
         const updateTime = () => {
             if (!audioRef.current) return;
@@ -96,7 +101,8 @@ const PlayerContextProvider = ({ children }) => {
         pause,
         playWithId,
         previous,
-        next
+        next,
+        seekSong
     };
 
     return (
